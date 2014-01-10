@@ -1,12 +1,18 @@
-FROM ubuntu
+FROM ubuntu:12.10
 MAINTAINER bbytes  "info@beyondbytes.co.in"
 
-RUN apt-get install -y python-software-properties python
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y nodejs
+# Update packages
+RUN apt-get update && apt-get upgrade
 
+# Install some packages we need
+RUN apt-get install -y curl
+
+# Install Node.JS
+RUN cd /usr/local && curl http://nodejs.org/dist/v0.10.22/node-v0.10.22-linux-x64.tar.gz | tar --strip-components=1 -zxf- && cd
+RUN npm -g update npm
+RUN npm install -g forever
+
+# Copy files and run
 RUN mkdir /opt/bbytes
 RUN cd /opt/bbytes
 RUN apt-get install -y git-core
@@ -15,9 +21,7 @@ RUN cd /opt/bbytes/proxy-etc
 RUN mkdir /opt/bbytes/proxy-etc/data
 RUN cd /opt/bbytes/proxy-etc; npm install
 
-RUN  npm install -g forever
-
 EXPOSE 80
 EXPOSE 3333
 
-CMD /usr/bin/node /opt/bbytes/proxy-etc/app.js
+CMD forever /opt/bbytes/proxy-etc/app.js
