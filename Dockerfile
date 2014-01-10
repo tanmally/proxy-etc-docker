@@ -24,4 +24,4 @@ RUN cd /opt/bbytes/proxy-etc; npm install
 EXPOSE 80
 EXPOSE 3333
 
-CMD forever /opt/bbytes/proxy-etc/app.js
+CMD cd /opt/bbytes/proxy-etc ; forever app.js
