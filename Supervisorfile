@@ -1,9 +1,3 @@
-[program:tomcat]
-command=service tomcat7 start && tail -f /var/lib/tomcat7/logs/catalina.out
-numprocs=1
-autostart=true
-autorestart=true
-
 [program:proxy-etc]
 command=/usr/bin/node /opt/bbytes/proxy-etc/app.js
 numprocs=1
