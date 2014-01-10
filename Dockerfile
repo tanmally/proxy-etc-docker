@@ -20,4 +20,4 @@ RUN  npm install -g forever
 EXPOSE 80
 EXPOSE 3333
 
-CMD forever start /opt/bbytes/proxy-etc/app.js
+CMD /usr/bin/node /opt/bbytes/proxy-etc/app.js
