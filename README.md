@@ -1,10 +1,12 @@
 proxy-etc-docker
 ================
 
-dockerfile for proxy-etc and tomcat7 
+dockerfile for proxy-etc 
 
-sudo docker build github.com/tanmally/proxy-etc-docker.git
+TO BUILD :
 
-TO RUN 
+$ sudo docker build github.com/tanmally/proxy-etc-docker.git
 
-$ docker run -d -p 3333:3333 -p 80:80 bbytes/proxy-etc
+TO RUN :
+
+$ sudo docker run -d -p 3333:3333 -p 80:80 bbytes/proxy-etc
