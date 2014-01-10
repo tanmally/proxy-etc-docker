@@ -1,6 +1,0 @@
-[program:proxy-etc]
-command=/usr/bin/node /opt/bbytes/proxy-etc/app.js
-numprocs=1
-directory=/opt/bbytes/proxy-etc
-autostart=true
-autorestart=true
